@@ -1,0 +1,25 @@
+package dam.psp;
+
+
+
+public class Orden {
+	public boolean hilo2Acabado=false;
+	public static void main(String[] args) {
+		
+		Hilo hil1 = new Hilo(1);
+		
+		Hilo2 hil2 = new Hilo2(2);
+		
+	
+		hil1.start();
+		hil2.start();
+		
+		try {
+			hil1.join();
+			hil2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

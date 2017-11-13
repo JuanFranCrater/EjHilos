@@ -1,0 +1,8 @@
+package dam.psp;
+
+public class Llave {
+	public boolean acceso;
+	Llave(){
+		acceso=true;
+	}
+}

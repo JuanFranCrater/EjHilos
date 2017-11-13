@@ -1,0 +1,16 @@
+package dam.psp;
+
+public class Supermercado {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+public class Caja{
+	
+}
+public class Clientes{
+	
+}

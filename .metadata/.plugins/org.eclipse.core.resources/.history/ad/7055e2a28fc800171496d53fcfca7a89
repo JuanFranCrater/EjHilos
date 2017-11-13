@@ -1,0 +1,32 @@
+package dam.psp;
+
+import java.util.concurrent.Semaphore;
+
+public class Hilo extends Thread{
+	private int _ID;
+	private Semaphore sem;
+	Hilo(int id, Semaphore sem)
+	{
+		this._ID=id;
+		this.sem=sem;
+	}
+	@Override
+	public void run() {
+		try {
+			sem.acquire();
+			mensajeSend();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		sem.release();
+	}
+	private void mensajeSend()
+	{
+		System.out.println("Hola, soy el hilo número "+_ID);
+	}
+	public Semaphore getSem() {
+		return sem;
+	}
+
+	
+}

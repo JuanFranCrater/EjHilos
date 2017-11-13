@@ -1,0 +1,41 @@
+package dam.psp;
+
+public class CarreraMain {
+
+}
+
+class Runner extends Thread{
+	int dorsal;
+	Carrera carrera;
+	@Override
+	public void run() {
+		carrera.Correr();
+	}
+}
+class Carrera{
+	boolean corriendo;
+	public Carrera() {
+		this.corriendo=false;
+	}
+	synchronized void Correr() {
+		while(corriendo)
+		{
+			try {
+				this.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			corriendo = true;
+			System.out.println("El Corredor termina de correr");
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("El Corredor pasa el testigo");
+			corriendo = false;
+			notify();
+		}
+	}
+}

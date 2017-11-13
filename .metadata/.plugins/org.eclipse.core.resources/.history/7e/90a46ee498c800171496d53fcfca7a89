@@ -1,0 +1,28 @@
+package dam.psp;
+
+public class Supermercado {
+
+	public static void main(String[] args) {
+		int numClientes = Integer.parseInt(args[0]);//^Primer valor de entrada: Numero de Clientes
+		int numCajas = Integer.parseInt(args[1]);//^Segundo valor de entrada: Numero de Cajas
+		Cajas cajas = new Cajas(numCajas);
+		
+		for (int i = 0; i < numClientes; i++) {
+			
+			 Cliente c = new Cliente(cajas); 
+			 Thread t = new Thread(c);
+			 t.start();
+			 try {
+				t.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("El supermercado a ganado: "+cajas.Resultados+"€");
+		
+		
+	}
+
+}
+

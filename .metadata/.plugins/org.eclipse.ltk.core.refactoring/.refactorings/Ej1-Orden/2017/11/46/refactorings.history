@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Encapsulate field &apos;dam.psp.Hilo.sem&apos; in &apos;dam.psp.Hilo&apos;&#x0D;&#x0A;- Original project: &apos;Ej1-Orden&apos;&#x0D;&#x0A;- Original element: &apos;dam.psp.Hilo.sem&apos;&#x0D;&#x0A;- Getter method name: &apos;getSem&apos;&#x0D;&#x0A;- Setter method name: &apos;setSem&apos;&#x0D;&#x0A;- Field visibility: &apos;public&apos;&#x0D;&#x0A;- Use getter and setter methods in declaring type" comments="false" declaring="true" description="Encapsulate field &apos;sem&apos;" flags="589830" getter="getSem" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;dam.psp{Hilo.java[Hilo^sem" insertion="2" setter="setSem" stamp="1510590160756" version="1.0" visibility="1"/>
+</session>

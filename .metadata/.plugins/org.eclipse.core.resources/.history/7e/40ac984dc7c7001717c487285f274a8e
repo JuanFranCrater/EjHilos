@@ -1,0 +1,12 @@
+package dam.psp;
+
+public class Check {
+
+	static Bufer b = new Bufer();
+	public static void main(String[] args) {
+	HiloEscritor hilE = new HiloEscritor(b,0);
+	HiloLector hiloL = new HiloLector(b, 0);
+
+	}
+
+}

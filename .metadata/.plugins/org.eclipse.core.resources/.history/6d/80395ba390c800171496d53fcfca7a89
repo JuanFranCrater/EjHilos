@@ -1,0 +1,46 @@
+package dam.psp;
+
+
+
+public class Orden {
+	public boolean hilo2Acabado=false;
+	public static void main(String[] args) {
+		
+		Hilo hil1 = new Hilo(1);
+		
+		Hilo2 hil2 = new Hilo2(2);
+		
+	
+		hil1.start();
+		hil2.start();
+		hil2.setPriority(5);
+		hil1.setPriority(1);
+		
+		try {
+			hil1.join();
+			hil2.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public class Hilo2 extends Thread {
+		private int _ID;
+
+		Hilo2(int id)
+		{
+			this._ID=id;
+		}
+		@Override
+		public void run() {
+			mensajeSend();
+		}
+		private void mensajeSend()
+		{
+			System.out.println("Hola, soy el hilo número "+_ID);
+		}
+
+
+	}
+	
+}

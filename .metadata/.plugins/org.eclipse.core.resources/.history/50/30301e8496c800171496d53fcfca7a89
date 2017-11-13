@@ -1,0 +1,33 @@
+package dam.psp;
+
+public class Cajas  {
+	
+	private boolean cajas[];
+	Cajas(int numCajas)
+	{
+		for(int i = 0; i<numCajas; i++)
+		{
+			this.cajas = new boolean[i];	
+		}
+		
+	}
+	public synchronized void comprar(int caja) {
+		String hiloComprador = Thread.currentThread().getName();
+		while(cajas[caja])
+		{
+			System.out.println(hiloComprador+"trata de pagar");
+			System.out.println("Cajas llenas. "+hiloComprador+" debe esperar");
+			System.out.println();
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println(hiloComprador+"ha pagado");
+
+		notify();
+
+	}
+}

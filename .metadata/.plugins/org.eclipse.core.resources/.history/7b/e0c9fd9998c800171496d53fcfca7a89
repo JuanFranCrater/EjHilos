@@ -1,0 +1,15 @@
+package dam.psp;
+
+public class Cliente implements Runnable {
+
+	Cajas caja;
+	Cliente(Cajas caja){
+		this.caja=caja;
+	}
+	@Override
+	public void run() {
+		caja.comprar((int)((Math.random()*caja.cajas.length)+1),(int)(Math.random()*10));
+		
+	}
+
+}

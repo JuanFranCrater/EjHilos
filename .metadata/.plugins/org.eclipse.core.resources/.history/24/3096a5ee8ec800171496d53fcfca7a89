@@ -1,0 +1,31 @@
+package dam.psp;
+
+import java.util.concurrent.Semaphore;
+
+public class Orden {
+	private static Semaphore sem = new Semaphore(1);
+	public static void main(String[] args) {
+		
+		Hilo hil1 = new Hilo(1,sem);
+		
+		Hilo hil2 = new Hilo(2,sem);
+		try {
+			hil2.getSem().acquire();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		hil2.start();
+		hil1.start();
+		
+		
+		try {
+			hil2.join();
+			hil1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}

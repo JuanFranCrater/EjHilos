@@ -1,0 +1,28 @@
+package dam.psp;
+
+public class Caja  {
+	
+	private boolean buffer[];
+	private int contadorSinOcupar;
+	
+	public synchronized void comprar() {
+		String hiloComprador = Thread.currentThread().getName();
+		while(contadorSinOcupar==0)
+		{
+			System.out.println(hiloComprador+"trata de pagar");
+			System.out.println("Cajas llenas. "+hiloComprador+" debe esperar");
+			System.out.println();
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		contadorSinOcupar--;
+		System.out.println(hiloComprador+"ha pagado");
+
+		notify();
+
+	}
+}
