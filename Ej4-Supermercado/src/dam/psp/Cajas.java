@@ -2,30 +2,27 @@ package dam.psp;
 
 public class Cajas  {
 	int Resultados;
-	int cajas[];
+	boolean cajas[];
 	Cajas(int numCajas)
 	{
 		Resultados=0;
-		cajas = new int[numCajas];
+		cajas = new boolean[numCajas];
 		for(int i = 0; i<numCajas; i++)
 		{
-			cajas[i]=0;	
+			cajas[i]=false;	
 		}
-		
 	}
-	public void pagar(int caja,int aPagar) {
+	public synchronized void pagar(int aPagar) {
 		String hiloComprador = Thread.currentThread().getName();
-		while(cajas[caja]>0)
+		int caja;
+		do
 		{
-			System.out.println(hiloComprador+"trata de pagar en la caja "+caja);
-			System.out.println("Cliente pagando. "+hiloComprador+" debe esperar");
-			System.out.println();
-			cajas[caja]++;
-		}
+			caja=(int)(Math.random()*cajas.length);
+		}while(cajas[caja]);
 		
-		cajas[caja]++;
+		cajas[caja] = true;
 		
-		System.out.println(hiloComprador+"ha pagado en la caja "+caja+". Ha gastado "+aPagar);
+		System.out.println(hiloComprador+" ha pagado en la caja "+caja+". Ha gastado "+aPagar);
 		Resultados+=aPagar;
 		try {
 			Thread.sleep((long) Math.random()*10000);
@@ -33,9 +30,6 @@ public class Cajas  {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		cajas[caja]--;
-		notify();
-
+		cajas[caja]=false;
 	}
 }

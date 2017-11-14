@@ -6,8 +6,8 @@ public class Check {
 	
 	public static void main(String[] args) {
 		System.out.println("Inicio del hilo");
-	HiloEscritor hilE = new HiloEscritor(b,0);
-	HiloLector hilL = new HiloLector(b, 0);
+	HiloEscritor hilE = new HiloEscritor(b,100);
+	HiloLector hilL = new HiloLector(b, 100);
 	hilE.start();
 	hilL.start();
 	
