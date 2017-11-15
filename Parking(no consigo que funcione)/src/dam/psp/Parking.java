@@ -1,9 +1,18 @@
 package dam.psp;
 
-public class Parking {
+public class Parking extends Thread {
 	int numPlazas;
 	int numCoches;
 	Plazas[] plazas;
+	
+	
+	@Override
+	public void run() {
+		
+		while(true) {
+			
+		}
+	}
 	
 	public Parking(int numplazas, int numcoches){
 		this.numPlazas=numplazas;
@@ -14,7 +23,7 @@ public class Parking {
 		}
 	}
 	public synchronized Plazas getPlaza(int numPlaza){
-
+		
 		return plazas[numPlaza];
 
 	}
