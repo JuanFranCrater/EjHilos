@@ -1,5 +1,9 @@
 package dam.psp;
-
+/*
+añadir variable lectura++, monitor mejorar. 
+Implementar metodo leerposicion
+debe leer el buffer en varias iteracciones, añadiendo +1 en cada iteracion, solucion no valida
+*/
 public class Bufer {
 	private int[] buf = new int[10000];
 	private int posE = 0;
