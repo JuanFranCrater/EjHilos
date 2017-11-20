@@ -1,5 +1,10 @@
 package dam.psp;
+/*
+preguntar de quien es el turno, no sabemos quien echa a correr
+Relevo objeto critico
+notifyAll()!!!!!!!!!!
 
+*/
 public class CarreraMain {
 	static Carrera c = new Carrera();
 public static void main(String[] args) {
